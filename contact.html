@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Studio</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="javascript.js" type="text/javascript"></script>
+    <script src="gen_validatorv4.js" type="text/javascript"></script>
+
+
+  </head>
+  <body>
+
+      <nav>
+
+          <div class="navLogo">
+           <a href="index.html"><img id="logo"src="imgs/logo.png" alt="company logo"/></a>
+           <!-- <p>Digital Agency</p> -->
+         </div>
+
+       <ul>
+          <li class="navMenu">
+              <a href="index.html">Home</a>
+              <a href="gallery.html">Gallery</a>
+              <a href="service.html">Service</a>
+              <a href="about.html">About</a>
+              <a class="active" href="contact.html">Contact</a>
+          </li>
+
+
+          <li class="navSearch">
+            <form action="">
+              <input type="text" name="search">
+              <button onclick="myFunction()" type="submit"><i class="fa fa-search"></i></button>
+            </form>
+          </li>
+          <script>
+          function myFunction() {
+            alert("Sorry\nPlease get in touch with the staff?");
+          }
+          </script>
+
+
+        </ul>
+   </nav>
+
+
+    <div class="container">
+
+      <div class="info">
+
+        <h1>Contact Us if you have any queries</h1>
+        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo natus modi, maiores reiciendis sunt laboriosam ducimus consequuntur. Omnis saepe laudantium perferendis repellat illum, aliquam error sed animi vitae explicabo ducimus corporis. Adipisci ratione, similique nesciunt sint eveniet vel doloribus tenetur.</p>
+
+    </div>
+
+    <form action="" id="myform" >
+      <p>
+        <label for='FirstName'>First Name:</label>
+        <input type="text" id="FirstName" name="FirstName" />
+      </p>
+      <p>
+        <label for='LastName'>Last Name:</label>
+        <input type="text" id="LastName" name="LastName" />
+      </p>
+      <p>
+
+       <label for ='Gender'>Gender:</label>
+       <input type="radio" name="gender" value="male"> Male
+       <input type="radio" name="gender" value="female"> Female<br>
+
+     </p>
+      <p>
+        <label for='EMail'>EMail:</label>
+        <input type="text" id="EMail" name="EMail" />
+      </p>
+
+      <p>
+        <label for='Phone'>Phone:</label>
+        <input type="text" id="Phone" name="Phone" />
+      </p>
+
+      <p>
+        <label for='subject'>Subject:</label>
+        <select id="subject"  name="subject">
+            <option value="000" selected="selected">[choose option]</option>
+            <option value="008">Design Questions</option>
+            <option value="012">Website Queries</option>
+            <option value="016">Marketing</option>
+            <option value="020">SEO</option>
+            <option value="024">Other</option>
+
+        </select>
+      </p>
+      <p>
+        <label for='Message'>Message:</label>
+        <textarea cols="20" rows="5" id="Message" name="Message"></textarea>
+      </p>
+    <p>
+      <input type="submit" name="submit" value="Submit">
+    </p>
+   </form>
+   <h3>Business Opening Hours</h3>
+   <P>Form Monday to Friday(9:00-17:30)</p>
+<section class="maptest">
+   <h3>My Google Maps Demo</h3>
+ <!--The div element for the map -->
+ <div id="map"></div>
+</section>
+
+ <script>
+ // Initialize and add the map
+ function initMap() {
+   // The location of Uluru
+   var uluru = {lat: -25.344, lng: 131.036};
+   // The map, centered at Uluru
+   var map = new google.maps.Map(
+       document.getElementById('map'), {zoom: 4, center: uluru});
+   // The marker, positioned at Uluru
+   var marker = new google.maps.Marker({position: uluru, map: map});
+ }
+     </script>
+     <script async defer
+     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7FT2hINY4Fawmhi4qIj2v4MCyJizvck4&callback=initMap">
+     </script>
+
+
+
+      </div>
+
+
+
+
+
+    <footer>
+    
+      <div class="footres">
+        <div class="btmleft">
+           <p>123 O'Connell st, Dublin 1.</p>
+           <p>+353 1 234 5678 |  info@add.com</p>
+        </div>
+        <div class="btmright">
+          <p>Copyright &copy 2019 ADD Ltd.</p>
+          <a href="https://www.facebook.com/" class="fa fa-facebook-official" target="_blank"></a>
+          <a href="https://twitter.com/?lang=en" class="fa fa-twitter" target="_blank"></a>
+
+        </div>
+      </div>
+    </footer>
+
+
+    <script  type="text/javascript">
+     var frmvalidator = new Validator("myform");
+     frmvalidator.addValidation("FirstName","req","Please enter your First Name");
+     frmvalidator.addValidation("FirstName","maxlen=20",
+            "Max length for FirstName is 20");
+
+     frmvalidator.addValidation("LastName","req");
+     frmvalidator.addValidation("LastName","maxlen=20");
+
+     frmvalidator.addValidation("Email","maxlen=50","Please enter your Email");
+     frmvalidator.addValidation("Email","req");
+     frmvalidator.addValidation("Email","email");
+
+     frmvalidator.addValidation("Phone","maxlen=50");
+     frmvalidator.addValidation("Phone","numeric");
+
+     frmvalidator.addValidation("Message","maxlen=50");
+     frmvalidator.addValidation("subject","dontselect=000");
+
+
+     function DoCustomValidation()
+{
+  var frm = document.forms["myform"];
+  if(false == DoMyValidationOne())
+  {
+    sfm_show_error_msg('Validation One Failed!');
+    return false;
+  }
+  else
+  if(false == DoMyValidationTwo())
+  {
+    sfm_show_error_msg('Validation Two Failed!');
+    return false;
+  }
+  else
+  {
+    return true;
+  }
+}
+frmvalidator.setAddnlValidationFunction("DoCustomValidation");
+
+    </script>
+
+
+  </body>
+
+
+</html>
